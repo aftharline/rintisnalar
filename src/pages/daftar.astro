@@ -1,0 +1,274 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Navbar from "../components/layout/Navbar.astro"
+import Footer from "../components/sections/Footer.astro"
+import { PROGRAMS } from "../data/programs"
+---
+
+<Layout title="Pendaftaran | Rintis Nalar" description="Daftar program les privat Rintis Nalar, isi formulir dan konsultan kami akan menghubungi Anda.">
+  <Navbar simple />
+  <main class="min-h-screen pt-18">
+    <section class="relative overflow-hidden bg-gradient-to-b from-cream to-white py-16 md:py-24">
+      <div class="glow-orb w-[400px] h-[400px] bg-teal/5 left-[-100px] top-[-100px]"></div>
+      <div class="glow-orb w-[300px] h-[300px] bg-amber/5 right-[-80px] bottom-[-80px]"></div>
+
+      <div class="max-w-2xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+          <h1 class="fluid-heading-lg text-ink mb-3">Formulir Pendaftaran</h1>
+          <p class="fluid-body text-body/70 max-w-md mx-auto">
+            Isi data diri putra/putri Anda. Setelah dikirim, Anda akan diarahkan ke WhatsApp dengan template pesan yang sudah disediakan, silakan kirim pesan tersebut. Tim kami akan segera menanggapi dan memberikan arahan lebih lanjut.
+          </p>
+        </div>
+
+        <form id="registration-form" class="bg-white/80 backdrop-blur-sm border border-line/60 rounded-3xl p-8 md:p-10 shadow-sm space-y-6">
+          <div>
+            <label for="parent_name" class="block text-sm font-semibold text-ink mb-2">Nama Orang Tua</label>
+            <input
+              id="parent_name" name="parent_name" type="text" required
+              placeholder=" contoh: Budi Santoso"
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body placeholder:text-body/30 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
+            />
+          </div>
+
+          <div>
+            <label for="student_name" class="block text-sm font-semibold text-ink mb-2">Nama Siswa</label>
+            <input
+              id="student_name" name="student_name" type="text" required
+              placeholder=" contoh: Andi Pratama"
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body placeholder:text-body/30 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
+            />
+          </div>
+
+          <div>
+            <label for="school" class="block text-sm font-semibold text-ink mb-2">Asal Sekolah Siswa</label>
+            <input
+              id="school" name="school" type="text" required
+              placeholder=" contoh: SDN 1 Surabaya"
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body placeholder:text-body/30 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
+            />
+          </div>
+
+          <div>
+            <label for="address" class="block text-sm font-semibold text-ink mb-2">Alamat Rumah</label>
+            <textarea
+              id="address" name="address" rows="3" required
+              placeholder=" contoh: Jl. Merpati No. 10, Surabaya"
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body placeholder:text-body/30 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all resize-none"
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-ink mb-2">Nomor Telepon Orang Tua / Siswa</label>
+            <input
+              id="phone" name="phone" type="tel" required
+              placeholder=" contoh: 08123456789"
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body placeholder:text-body/30 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
+            />
+          </div>
+
+          <div>
+            <label for="package" class="block text-sm font-semibold text-ink mb-2">Pilihan Paket</label>
+            <select
+              id="package" name="package" required
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
+            >
+              <option value="" disabled selected>Pilih paket belajar</option>
+              <option value="Percobaan Gratis">Percobaan Gratis</option>
+              <option value="Paket Sesi Tunggal">Paket Sesi Tunggal</option>
+              <option value="Sesi Mingguan 2 Pertemuan">Sesi Mingguan 2 Pertemuan</option>
+              <option value="Sesi Mingguan 3 Pertemuan">Sesi Mingguan 3 Pertemuan</option>
+            </select>
+          </div>
+
+          <div id="programs-section">
+            <label class="block text-sm font-semibold text-ink mb-3">Pilihan Pembelajaran <span class="text-body/50 font-normal">(boleh pilih lebih dari satu)</span></label>
+            <div class="space-y-4">
+              {PROGRAMS.map((program) => (
+                <fieldset>
+                  <p class="text-xs font-semibold text-teal tracking-wide uppercase mb-2">{program.title}</p>
+                  <div class="space-y-2 ml-1">
+                    {program.items.map((item) => (
+                      <label class="flex items-start gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox" name="programs" value={item}
+                          class="mt-0.5 w-4 h-4 rounded border-line/60 text-teal focus:ring-teal/20 focus:ring-2 accent-teal cursor-pointer"
+                        />
+                        <span class="fluid-body text-body/80 group-hover:text-ink transition-colors">{item}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {program.id === "digital" && (
+                    <p class="text-xs text-teal/60 ml-1 mt-2 leading-relaxed">
+                      Tidak perlu khawatir jika belum memiliki laptop atau perangkat yang dibutuhkan karena akan disediakan oleh tutor Rintis Nalar.
+                    </p>
+                  )}
+                </fieldset>
+              ))}
+            </div>
+          </div>
+
+          <div id="free-trial-section" class="hidden">
+            <label class="block text-sm font-semibold text-ink mb-3">Syarat Mendapatkan Percobaan Gratis</label>
+            <div class="space-y-3 bg-teal/5 border border-teal/10 rounded-2xl p-5">
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" name="free_trial_terms" value="Posting status WhatsApp berisi konten Rintis Nalar" class="mt-0.5 w-4 h-4 rounded border-teal/30 text-teal focus:ring-teal/20 focus:ring-2 accent-teal cursor-pointer" />
+                <span class="fluid-body text-body/80 group-hover:text-ink transition-colors">Posting status WhatsApp berisi konten Rintis Nalar</span>
+              </label>
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" name="free_trial_terms" value="Membagikan konten Rintis Nalar ke 5 grup chat WhatsApp" class="mt-0.5 w-4 h-4 rounded border-teal/30 text-teal focus:ring-teal/20 focus:ring-2 accent-teal cursor-pointer" />
+                <span class="fluid-body text-body/80 group-hover:text-ink transition-colors">Membagikan konten Rintis Nalar ke 5 grup chat WhatsApp</span>
+              </label>
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" name="free_trial_terms" value="Saya mengetahui bahwa promo ini hanya berlaku sebanyak satu kali" class="mt-0.5 w-4 h-4 rounded border-teal/30 text-teal focus:ring-teal/20 focus:ring-2 accent-teal cursor-pointer" />
+                <span class="fluid-body text-body/80 group-hover:text-ink transition-colors">Saya mengetahui bahwa promo ini hanya dapat diklaim sekali</span>
+              </label>
+              <p class="text-xs text-teal/60 mt-3 pt-3 border-t border-teal/10">
+                Konten sudah disediakan dan tinggal kirim saja.
+              </p>
+            </div>
+          </div>
+
+          <div id="payment-section">
+            <label for="payment" class="block text-sm font-semibold text-ink mb-2">Metode Pembayaran</label>
+            <select
+              id="payment" name="payment" required
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat"
+            >
+              <option value="" disabled selected>Pilih metode pembayaran</option>
+              <option value="BCA Only">BCA Only</option>
+              <option value="Provider Lain Segera Hadir" disabled>Provider Lain Segera Hadir</option>
+            </select>
+            <p class="text-xs text-body/50 mt-2">Saat ini pembayaran melalui BCA. Provider lain segera hadir.</p>
+          </div>
+
+          <div>
+            <label for="referral" class="block text-sm font-semibold text-ink mb-2">Dari mana Anda mengetahui Rintis Nalar?</label>
+            <input
+              id="referral" name="referral" type="text" required
+              placeholder=" contoh: Teman, Instagram, Google, dll"
+              class="w-full px-4 py-3.5 rounded-xl border border-line/60 bg-white text-ink fluid-body placeholder:text-body/30 focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal transition-all"
+            />
+          </div>
+
+          <button
+            id="submit-btn"
+            type="submit"
+            class="w-full py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-teal to-teal-light hover:from-teal-dark hover:to-teal shadow-lg shadow-teal/25 hover:shadow-teal/35 transition-all duration-300 active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:from-teal disabled:hover:to-teal-light disabled:active:scale-100"
+          >
+            Daftar Sekarang
+          </button>
+
+          <p class="text-center text-xs text-body/50">
+            Dengan mendaftar, Anda menyetujui bahwa data Anda akan digunakan untuk keperluan pendaftaran program Rintis Nalar.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    const form        = document.getElementById("registration-form")
+    const pkgSelect   = document.getElementById("package")
+    const paymentSec  = document.getElementById("payment-section")
+    const programsSec = document.getElementById("programs-section")
+    const freeSec     = document.getElementById("free-trial-section")
+    const submitBtn   = document.getElementById("submit-btn")
+    const paymentInp  = document.getElementById("payment")
+    const termsCbs    = () => [...(freeSec?.querySelectorAll(`[name="free_trial_terms"]`) || [])]
+    const progCbs     = () => [...(form?.querySelectorAll(`[name="programs"]`) || [])]
+
+    function updateForm() {
+      const isFree = pkgSelect?.value === "Percobaan Gratis"
+
+      paymentSec?.classList.toggle("hidden", isFree)
+      programsSec?.classList.toggle("hidden", isFree)
+      freeSec?.classList.toggle("hidden", !isFree)
+
+      if (paymentInp) paymentInp.required = !isFree
+
+      validate()
+    }
+
+    function validate() {
+      const get = (name) => { const el = form?.querySelector(`[name="${name}"]`); return el ? el.value.trim() : "" }
+
+      const nParent   = get("parent_name")
+      const nStudent  = get("student_name")
+      const nSchool   = get("school")
+      const nAddress  = get("address")
+      const nPhone    = get("phone")
+      const nPkg      = get("package")
+      const nReferral = get("referral")
+
+      const basicFilled = nParent && nStudent && nSchool && nAddress && nPhone && nPkg && nReferral
+      if (!basicFilled) { if (submitBtn) submitBtn.disabled = true; return }
+
+      const isFree = nPkg === "Percobaan Gratis"
+
+      if (isFree) {
+        const allTerms = termsCbs().every((cb) => cb.checked)
+        if (submitBtn) submitBtn.disabled = !allTerms
+      } else {
+        const nPayment = get("payment")
+        const hasProgram = progCbs().some((cb) => cb.checked)
+        if (submitBtn) submitBtn.disabled = !nPayment || !hasProgram
+      }
+    }
+
+    form?.querySelectorAll("input, select, textarea").forEach((el) => {
+      el.addEventListener("input", validate)
+      el.addEventListener("change", validate)
+    })
+    pkgSelect?.addEventListener("change", updateForm)
+    freeSec?.addEventListener("change", validate)
+    progCbs().forEach((cb) => cb.addEventListener("change", validate))
+    window.addEventListener("load", validate)
+
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault()
+      if (submitBtn?.disabled) return
+
+      const get = (name) => { const el = form?.querySelector(`[name="${name}"]`); return el ? el.value.trim() : "" }
+
+      const parentName    = get("parent_name")
+      const studentName   = get("student_name")
+      const school        = get("school")
+      const address       = get("address")
+      const phone         = get("phone")
+      const pkg           = get("package")
+      const payment       = pkg === "Percobaan Gratis" ? "-" : get("payment")
+      const referral      = get("referral")
+
+      const programsChecked = progCbs().filter((cb) => cb.checked).map((cb) => cb.value)
+      const programs = programsChecked.length > 0 ? programsChecked.join(", ") : "-"
+
+      const termsChecked = termsCbs().filter((cb) => cb.checked).map((cb) => cb.value)
+      const terms = termsChecked.length > 0 ? "\n  - " + termsChecked.join("\n  - ") : ""
+
+      const isFree = pkg === "Percobaan Gratis"
+      const feeLine = isFree ? "" : `Metode Pembayaran: ${payment}`
+      const progLine = isFree ? "" : `Pilihan Pembelajaran: ${programs}`
+      const termsLine = isFree ? `Syarat:${terms}` : ""
+
+      const message =
+`Halo Rintis Nalar!
+
+Data Pendaftaran:
+Nama Orang Tua: ${parentName}
+Nama Siswa: ${studentName}
+Asal Sekolah: ${school}
+Alamat: ${address}
+No. Telepon: ${phone}
+${progLine}
+Paket: ${pkg}
+${feeLine}${termsLine}
+Mengetahui dari: ${referral}
+
+Saya ingin mendaftar.`
+
+      window.open(`https://wa.me/6285161078616?text=${encodeURIComponent(message)}`, "_blank")
+      setTimeout(() => { window.location.href = "/" }, 500)
+    })
+  </script>
+</Layout>

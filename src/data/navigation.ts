@@ -7,5 +7,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Program", href: "#programs" },
   { label: "Testimonial", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
+  { label: "Pendaftaran", href: "/daftar" },
   { label: "Kontak", href: "#cta" },
 ]

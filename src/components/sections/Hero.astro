@@ -1,6 +1,6 @@
 ---
 import Button from "../ui/Button.astro"
-import { WA_LINK, WA_LABEL } from "../../data/site"
+import { DAFTAR_URL, WA_LABEL } from "../../data/site"
 import Ribbons from "../islands/Ribbons.tsx"
 ---
 
@@ -29,7 +29,7 @@ import Ribbons from "../islands/Ribbons.tsx"
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
-      <Button href={WA_LINK} variant="primary" external>
+      <Button href={DAFTAR_URL} variant="primary">
         {WA_LABEL}
       </Button>
       <Button href="#problem" variant="secondary">

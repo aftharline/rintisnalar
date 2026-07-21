@@ -14,15 +14,15 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "Bagaimana sistem pembayarannya?",
-    answer: "Pembayaran dilakukan secara insidentil atau bulanan di awal periode sesuai paket yang diambil. Kami menerima transfer bank BCA dan e-wallet DANA. Paket insidentil atau hingga 12 sesi per bulan dengan fleksibilitas reschedule.",
+    answer: "Pembayaran dilakukan secara insidentil atau mingguan di awal periode sesuai paket yang diambil. Saat ini kami hanya menerima transfer ke bank BCA, dan provider lain akan segera hadir. Paket insidentil atau hingga 12 sesi per bulan dengan fleksibilitas reschedule.",
   },
   {
     question: "Apakah ada laporan perkembangan?",
-    answer: "Tentu, tetapi hanya berlaku untuk Paket Bulanan. Setiap akhir bulan, orang tua akan menerima Progress Report lengkap yang mencakup pencapaian, area yang perlu ditingkatkan, dan rekomendasi tutor. Kami juga mengadakan sesi konsultasi orang tua secara berkala.",
+    answer: "Tentu, tetapi hanya berlaku untuk Paket Mingguan. Setiap akhir bulan, orang tua akan menerima Progress Report lengkap yang mencakup pencapaian, area yang perlu ditingkatkan, dan rekomendasi tutor. Kami juga mengadakan sesi konsultasi orang tua secara berkala.",
   },
   {
     question: "Berapa lama durasi setiap sesi?",
-    answer: "Setiap sesi berlangsung selama 90 menit, frekuensi bisa disesuaikan 1-3x seminggu.",
+    answer: "Setiap sesi berlangsung hingga 90 menit, frekuensi bisa disesuaikan 1-3x seminggu.",
   },
   {
     question: "Bagaimana kualitas tutor di Rintis Nalar?",
@@ -30,6 +30,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "Apakah bisa meminta tutor yang sama setiap sesi?",
-    answer: "Tentu. Kami menyesuaikan tutor tetap yang konsisten mendampingi anak Anda sepanjang periode. Jika ada ketidakcocokan, kami siap mengganti tutor tanpa biaya tambahan.",
+    answer: "Tentu. Kami bisa menyesuaikan tutor tetap yang konsisten mendampingi anak Anda sepanjang periode. Jika ada ketidakcocokan atau kendala, kami akan mengganti tutor tanpa biaya tambahan.",
   },
 ]
