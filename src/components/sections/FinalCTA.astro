@@ -1,0 +1,24 @@
+---
+import Button from "../ui/Button.astro"
+import { WA_LINK } from "../../data/site"
+---
+
+<section id="cta" class="relative overflow-hidden bg-gradient-to-br from-teal via-teal-dark to-teal text-white py-28 md:py-36">
+  <div class="glow-orb w-[600px] h-[600px] bg-white/[0.06] top-[-200px] left-[-200px]"></div>
+  <div class="glow-orb w-[400px] h-[400px] bg-amber/[0.06] bottom-[-120px] right-[-120px]"></div>
+
+  <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+    <h2 class="fluid-heading-lg mb-4 reveal">
+      <span class="gradient-white">Siap Memulai Perjalanan Belajar yang Lebih Bermakna?</span>
+    </h2>
+    <p class="text-featured text-white/60 mb-12 reveal">
+      Klaim Promo 1 Sesi Gratis Sekarang. <br>
+      <i><small>Syarat & Ketentuan Berlaku</small></i>
+    </p>
+    <div class="reveal">
+      <Button href={WA_LINK} variant="accent" external>
+        Daftar Sekarang
+      </Button>
+    </div>
+  </div>
+</section>

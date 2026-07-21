@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string
+  variant?: "primary" | "secondary" | "accent" | "outline"
+  class?: string
+  external?: boolean
+}
+
+const { href, variant = "primary", class: className = "", external = false } = Astro.props
+
+const styles = {
+  primary: "bg-gradient-to-r from-teal to-teal-light text-white hover:from-teal-dark hover:to-teal shadow-lg shadow-teal/25 hover:shadow-teal/35",
+  secondary: "border border-line/60 text-ink hover:bg-cream hover:border-teal/30",
+  accent: "bg-gradient-to-r from-amber to-amber-light text-ink hover:scale-105 shadow-2xl shadow-amber/20 hover:shadow-amber/30 font-bold",
+  outline: "border-2 border-teal/30 text-teal hover:bg-teal hover:text-white hover:border-teal",
+}
+
+const base = "inline-block px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300"
+---
+
+<a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} class:list={[base, styles[variant], className]}>
+  <slot />
+</a>

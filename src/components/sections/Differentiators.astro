@@ -1,0 +1,41 @@
+---
+import { Gift, UserCheck, Map, LineChart, Target, PhoneCall, Trophy, CalendarCheck } from "lucide-react"
+import { DIFFERENTIATORS } from "../../data/differentiators"
+
+const iconMap: Record<string, typeof Gift> = {
+  Gift, UserCheck, Map, LineChart, Target, PhoneCall, Trophy, CalendarCheck,
+}
+---
+
+<section id="differentiators" class="relative overflow-hidden bg-white py-24 md:py-32 dot-pattern-light">
+  <div class="glow-orb w-[500px] h-[500px] bg-amber/5 left-[-150px] bottom-[-150px]"></div>
+
+  <div class="max-w-7xl mx-auto px-6 mb-14 text-center relative z-10">
+    <span class="section-number reveal">Keunggulan</span>
+    <h2 class="fluid-heading-lg text-ink mt-3 reveal">Apa yang Membuat Kami Berbeda?</h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:flex md:gap-8 md:overflow-x-auto md:px-6 md:pb-6 md:snap-x md:snap-mandatory md:scrollbar-hide relative z-10 gap-5 md:gap-8 px-6 md:px-0">
+    {DIFFERENTIATORS.map((item, i) => {
+      const Icon = iconMap[item.icon]
+      return (
+        <div class="bg-gradient-to-b from-white to-cream/50 border border-line/60 rounded-2xl md:rounded-3xl p-6 md:p-10 flex flex-col justify-between shadow-sm hover:shadow-lg hover:border-teal/20 transition-all duration-500 md:snap-start md:min-w-[320px] lg:min-w-[380px] md:shrink-0 group reveal">
+          <div>
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-teal/10 to-teal/5 flex items-center justify-center text-teal mb-4 md:mb-6 group-hover:scale-110 group-hover:from-teal/20 group-hover:to-teal/10 transition-all duration-500">
+              {Icon && <Icon size={22} strokeWidth={1.5} />}
+            </div>
+            <h3 class="text-lg md:text-2xl font-semibold md:font-bold text-ink mb-2 md:mb-3">{item.title}</h3>
+            <p class="text-body/80 text-sm md:text-base leading-relaxed">{item.desc}</p>
+          </div>
+          <span class="text-5xl md:text-7xl font-bold text-cream-dark/30 mt-5 md:mt-8 group-hover:gradient-text transition-all duration-500">{(i + 1).toString().padStart(2, "0")}</span>
+        </div>
+      )
+    })}
+  </div>
+
+  <div class="md:hidden text-center mt-8 text-body/40 text-xs tracking-wider uppercase reveal flex items-center justify-center gap-3">
+    <span class="w-6 h-px bg-line"></span>
+    <span>Geser untuk lihat lebih</span>
+    <span class="w-6 h-px bg-line"></span>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+const slides = [
+  "Tidak semua anak kesulitan belajar karena malas.",
+  "Terkadang mereka hanya belum menemukan cara belajar yang tepat.",
+  "Terkadang mereka takut bertanya.",
+  "Terkadang mereka kehilangan kepercayaan diri.",
+  "Dan sering kali, orang tua tidak tahu harus mulai dari mana.",
+]
+---
+
+<section id="problem" class="relative overflow-hidden bg-gradient-to-b from-ink via-[#1a2332] to-ink">
+  <div class="glow-orb w-[600px] h-[600px] bg-teal/5 top-[-200px] left-[-200px]"></div>
+  <div class="max-w-5xl mx-auto px-6 py-32 md:py-40 text-center relative z-10">
+    <div class="space-y-4 mb-20 md:mb-28 reveal">
+      <span class="section-number text-amber/50">Tantangan</span>
+      <h2 class="fluid-heading-lg text-white/90">Kenapa Belajar Terasa Sulit?</h2>
+    </div>
+
+    <div class="space-y-16 md:space-y-20">
+      {slides.map((slide, i) => (
+        <p
+          class="fluid-heading-sm md:fluid-heading-md text-white/70 font-extralight leading-relaxed word-reveal reveal"
+          style={`--word-delay: ${i * 0.12}s`}
+        >
+          {slide.split(" ").map((word, j) => (
+            <span style={`animation-delay: ${i * 0.12 + j * 0.04}s`}>{word}{j < slide.split(" ").length - 1 ? "\u00A0" : ""}</span>
+          ))}
+        </p>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+import { ClipboardList, Target, Calendar, Trophy, Shield } from "lucide-react"
+import { LEARNING_STEPS } from "../../data/steps"
+
+const iconMap: Record<string, typeof ClipboardList> = {
+  ClipboardList, Target, Calendar, Trophy, Shield,
+}
+---
+
+<section class="relative overflow-hidden gradient-cream py-24 md:py-32">
+  <div class="glow-orb w-[400px] h-[400px] bg-teal/5 bottom-[-100px] right-[-100px]"></div>
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-20">
+      <span class="text-teal/60 text-sm tracking-[0.2em] uppercase font-semibold reveal">Proses</span>
+      <h2 class="fluid-heading-lg text-ink mt-3 reveal">Perjalanan Belajar</h2>
+    </div>
+
+    <div class="relative">
+      <div class="absolute left-[23px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal/40 via-teal/20 to-transparent md:-translate-x-px"></div>
+      <div class="space-y-12 md:space-y-20">
+        {LEARNING_STEPS.map((step, index) => {
+          const Icon = iconMap[step.icon]
+          const isEven = index % 2 === 0
+          return (
+            <div class="relative flex flex-col md:flex-row items-start gap-6 md:gap-12 group reveal">
+              <div class={`md:w-1/2 ${isEven ? "md:text-right md:pr-8" : "md:order-2 md:pl-8"}`}>
+                <div class={`bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-line/50 hover:shadow-md hover:border-teal/20 transition-all duration-500 ${isEven ? "" : ""}`}>
+                  <div class="text-teal mb-3">{Icon && <Icon size={24} strokeWidth={1.5} />}</div>
+                  <h3 class="fluid-heading-sm text-ink mb-2">{step.title}</h3>
+                  <p class="text-body/80 fluid-body leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+
+              <div class="absolute left-0 md:left-1/2 w-12 h-12 -translate-x-[22px] md:-translate-x-6 rounded-full bg-gradient-to-br from-teal to-teal-light flex items-center justify-center text-white text-sm font-bold border-4 border-cream shadow-lg shrink-0 z-10 group-hover:scale-110 transition-transform duration-500">
+                {index + 1}
+              </div>
+
+              <div class={`md:w-1/2 ${isEven ? "md:order-2 md:pl-8" : ""}`}></div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  </div>
+</section>

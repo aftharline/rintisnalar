@@ -1,0 +1,41 @@
+---
+import { Home, Heart, User, CalendarCheck, ShieldCheck } from "lucide-react"
+import { WHY_HOME_POINTS } from "../../data/steps"
+
+const iconMap: Record<string, typeof Home> = {
+  Home, Heart, User, CalendarCheck, ShieldCheck,
+}
+---
+
+<section class="relative overflow-hidden bg-white py-24 md:py-32 dot-pattern-light">
+  <div class="glow-orb w-[450px] h-[450px] bg-teal/5 top-[-100px] right-[-100px]"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="text-teal/60 text-sm tracking-[0.2em] uppercase font-semibold reveal">Kenyamanan</span>
+        <h2 class="fluid-heading-lg text-ink mt-3 mb-6 reveal">Kenapa Les di Rumah?</h2>
+        <p class="fluid-body text-body/80 leading-relaxed reveal">
+          Kami membawa pendampingan berkualitas langsung ke ruang aman bagi anak Anda.
+        </p>
+      </div>
+
+      <div class="grid gap-4">
+        {WHY_HOME_POINTS.map((p) => {
+          const Icon = iconMap[p.icon]
+          return (
+            <div class="flex items-center gap-5 p-5 rounded-xl bg-gradient-to-r from-cream/80 to-transparent border border-line/40 hover:border-teal/20 hover:from-teal/[0.03] transition-all duration-400 group reveal">
+              <div class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-teal/10 to-teal/5 rounded-xl text-teal group-hover:scale-110 group-hover:from-teal/20 transition-all duration-400">
+                {Icon && <Icon size={22} strokeWidth={1.5} />}
+              </div>
+              <div>
+                <h4 class="font-semibold text-ink">{p.title}</h4>
+                <p class="text-body/70 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  </div>
+</section>

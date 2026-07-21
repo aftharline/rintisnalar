@@ -1,0 +1,40 @@
+---
+import Button from "../ui/Button.astro"
+import { WA_LINK, WA_LABEL } from "../../data/site"
+import Ribbons from "../islands/Ribbons.tsx"
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-cream to-white">
+  <Ribbons
+    colors={["#0F766E", "#14A398", "#F59E0B", "#0F766E"]}
+    baseThickness={20}
+    speedMultiplier={0.4}
+    maxAge={700}
+    pointCount={35}
+    enableFade={true}
+    enableShaderEffect={true}
+    effectAmplitude={1.2}
+    client:visible
+  />
+
+  <div class="max-w-4xl mx-auto px-6 text-center z-10">
+    <img src="/logo.svg" alt="Rintis Nalar" class="h-20 md:h-24 w-auto mx-auto mb-10 reveal" />
+
+    <h1 class="fluid-heading-xl text-ink leading-tight mb-6 reveal">
+      Belajar Tidak Harus <br/> <span class="gradient-text text-glow">Menakutkan.</span>
+    </h1>
+
+    <p class="fluid-body-lg text-body/80 max-w-2xl mx-auto mb-12 reveal leading-relaxed">
+      Setiap anak memiliki cara belajar yang berbeda. Kami hadir untuk membantu mereka memahami, bertumbuh, dan percaya pada kemampuannya sendiri.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+      <Button href={WA_LINK} variant="primary" external>
+        {WA_LABEL}
+      </Button>
+      <Button href="#problem" variant="secondary">
+        Lihat Perjalanan Kami
+      </Button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+import { Check } from "lucide-react"
+
+const studentBenefits = ["Lebih percaya diri", "Berani bertanya", "Memahami konsep", "Memiliki target belajar", "Meningkatkan kemampuan berpikir"]
+const parentBenefits = ["Laporan perkembangan", "Evaluasi berkala", "Konsultasi tutor", "Target belajar yang jelas", "Monitoring progres"]
+---
+
+<section class="relative overflow-hidden bg-white py-24 md:py-32">
+  <div class="glow-orb w-[600px] h-[600px] bg-amber/5 top-[-200px] right-[-200px]"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <span class="text-teal/60 text-sm tracking-[0.2em] uppercase font-semibold reveal">Manfaat</span>
+      <h2 class="fluid-heading-lg text-ink mt-3 reveal">Yang Akan Didapatkan</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 md:gap-20">
+      <div class="bg-gradient-to-b from-cream/60 to-transparent p-8 md:p-10 rounded-3xl border border-line/40 reveal">
+        <h3 class="fluid-heading-sm text-teal mb-8">Benefit untuk Siswa</h3>
+        <ul class="space-y-5">
+          {studentBenefits.map((b) => (
+            <li class="flex items-start gap-4">
+              <span class="w-6 h-6 rounded-full bg-gradient-to-br from-teal to-teal-light flex items-center justify-center shrink-0 mt-0.5">
+                <Check size={14} strokeWidth={3} class="text-white" />
+              </span>
+              <span class="fluid-body text-ink/80">{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-b from-cream/60 to-transparent p-8 md:p-10 rounded-3xl border border-line/40 reveal">
+        <h3 class="fluid-heading-sm text-teal mb-8">Benefit untuk Orang Tua</h3>
+        <ul class="space-y-5">
+          {parentBenefits.map((b) => (
+            <li class="flex items-start gap-4">
+              <span class="w-6 h-6 rounded-full bg-gradient-to-br from-teal to-teal-light flex items-center justify-center shrink-0 mt-0.5">
+                <Check size={14} strokeWidth={3} class="text-white" />
+              </span>
+              <span class="fluid-body text-ink/80">{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

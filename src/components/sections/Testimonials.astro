@@ -1,0 +1,48 @@
+---
+import { TESTIMONIALS } from "../../data/testimonials"
+---
+
+<section id="testimonials" class="relative overflow-hidden bg-gradient-to-br from-teal via-teal-dark to-teal text-white py-24 md:py-32">
+  <div class="glow-orb w-[600px] h-[600px] bg-white/5 top-[-200px] right-[-200px]"></div>
+  <div class="glow-orb w-[400px] h-[400px] bg-amber/5 bottom-[-100px] left-[-100px]"></div>
+
+  <div class="max-w-7xl mx-auto px-6 mb-14 text-center relative z-10">
+    <span class="section-number text-white/30">Testimonial</span>
+    <h2 class="fluid-heading-lg text-white mt-3 reveal">Kata Mereka</h2>
+  </div>
+
+  <div class="flex flex-col gap-8 relative z-10">
+    <div class="flex gap-8 w-max animate-marquee-left hover:paused">
+      {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+        <div key={`${t.id}-${i}`} class="w-[360px] bg-white/[0.07] backdrop-blur-md border border-white/[0.12] p-7 rounded-2xl shrink-0 hover:bg-white/[0.12] transition-colors">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amber/40 to-amber/20 flex items-center justify-center text-white font-bold text-base ring-2 ring-white/10">
+              {t.name.charAt(0)}
+            </div>
+            <div>
+              <h4 class="font-semibold text-white text-sm">{t.name}</h4>
+              <p class="text-xs text-white/50">{t.role}</p>
+            </div>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed"><span class="text-amber/40 font-serif text-xl leading-none mr-1">"</span>{t.quote}<span class="text-amber/40 font-serif text-xl leading-none ml-1">"</span></p>
+        </div>
+      ))}
+    </div>
+    <div class="flex gap-8 w-max animate-marquee-right hover:paused">
+      {[...TESTIMONIALS, ...TESTIMONIALS].reverse().map((t, i) => (
+        <div key={`${t.id}-rev-${i}`} class="w-[360px] bg-white/[0.07] backdrop-blur-md border border-white/[0.12] p-7 rounded-2xl shrink-0 hover:bg-white/[0.12] transition-colors">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amber/40 to-amber/20 flex items-center justify-center text-white font-bold text-base ring-2 ring-white/10">
+              {t.name.charAt(0)}
+            </div>
+            <div>
+              <h4 class="font-semibold text-white text-sm">{t.name}</h4>
+              <p class="text-xs text-white/50">{t.role}</p>
+            </div>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed"><span class="text-amber/40 font-serif text-xl leading-none mr-1">"</span>{t.quote}<span class="text-amber/40 font-serif text-xl leading-none ml-1">"</span></p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
