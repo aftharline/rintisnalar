@@ -378,6 +378,7 @@ p {
 .eyebrow {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.625rem;
   font-size: 0.75rem;
   font-weight: 700;
@@ -385,6 +386,15 @@ p {
   text-transform: uppercase;
   color: var(--color-teal);
   white-space: nowrap;
+  max-width: 100%;
+}
+@media (max-width: 480px) {
+  .eyebrow {
+    white-space: normal;
+    text-align: center;
+    line-height: 2;
+    letter-spacing: 0.18em;
+  }
 }
 .eyebrow::before {
   content: "";
