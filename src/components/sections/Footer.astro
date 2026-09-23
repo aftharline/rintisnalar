@@ -1,0 +1,51 @@
+---
+import { MAPS_LINK } from "../../data/site"
+
+const year = new Date().getFullYear()
+---
+
+<footer class="relative overflow-hidden bg-abyss text-white/60 py-16 md:py-20">
+  <div class="glow-orb w-[500px] h-[400px] bg-teal/10 top-[-200px] left-1/2 -translate-x-1/2" aria-hidden="true"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <p class="font-hud text-[0.625rem] tracking-[0.3em] uppercase text-teal-light/50 mb-10">// Rintis Nalar: Merintis Cara Berpikir</p>
+    <div class="grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <a href="#hero" class="flex items-center gap-3 mb-4">
+          <img src="/logo.svg" alt="Rintis Nalar" class="h-9 w-auto" />
+          <span class="font-sora font-bold text-xl text-white">Rintis Nalar.</span>
+        </a>
+        <p class="text-sm leading-relaxed max-w-sm">
+          Merintis Cara Berpikir. Pendampingan belajar privat yang datang langsung ke rumah, membantu anak menemukan potensi terbaiknya.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold text-sm tracking-wide mb-5">Hubungi Kami</h4>
+        <div class="flex flex-col gap-3 text-sm">
+          <a href="https://wa.me/6285161078616" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">WhatsApp</a>
+          <a href="https://www.instagram.com/lesprivat.rintisnalar/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Instagram</a>
+          <a href="mailto:abdeenurfatih@gmail.com" class="hover:text-white transition-colors">Email</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold text-sm tracking-wide mb-5">Lokasi</h4>
+        <div class="flex flex-col gap-3 text-sm">
+          <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+            <b>Rumah Belajar</b>, Sidoarjo ↗
+          </a>
+          <a href="https://maps.google.com/?q=Surabaya" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Surabaya</a>
+          <a href="https://maps.google.com/?q=Sidoarjo" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Sidoarjo</a>
+          <a href="#" rel="noopener noreferrer" class="hover:text-white transition-colors">Segera hadir di Kota lain!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider mt-12 mb-6"></div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
+      <p>© {year} Rintis Nalar. All rights reserved.</p>
+      <p>Merintis Cara Berpikir.</p>
+    </div>
+  </div>
+</footer>

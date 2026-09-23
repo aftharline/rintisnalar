@@ -1,0 +1,35 @@
+---
+const slides = [
+  "Tidak semua anak kesulitan belajar karena malas.",
+  "Terkadang mereka hanya belum menemukan cara belajar yang tepat.",
+  "Terkadang mereka takut bertanya.",
+  "Terkadang mereka kehilangan kepercayaan diri.",
+  "Dan sering kali, orang tua tidak tahu harus mulai dari mana.",
+]
+---
+
+<section id="problem" class="relative overflow-hidden bg-abyss">
+  <div class="grid-floor grid-floor-dark absolute inset-0 opacity-60" aria-hidden="true"></div>
+  <div class="glow-orb w-[600px] h-[600px] bg-teal/10 top-[-200px] left-[-200px] animate-pulse-glow" data-parallax="0.2"></div>
+  <div class="max-w-5xl mx-auto px-6 py-32 md:py-40 text-center relative z-10">
+    <div class="space-y-4 mb-10 md:mb-14 reveal">
+      <span class="section-number text-amber/50">Tantangan</span>
+      <h2 class="fluid-heading-lg text-white/90">Kenapa Belajar Terasa Sulit?</h2>
+    </div>
+
+    <div class="text-stroke text-stroke-light text-[15vw] md:text-[9rem] tracking-tight text-center mb-12 md:mb-20" aria-hidden="true">SULIT?</div>
+
+    <div class="space-y-16 md:space-y-20">
+      {slides.map((slide, i) => (
+        <p
+          class="fluid-heading-sm md:fluid-heading-md text-white/70 font-extralight leading-relaxed word-reveal reveal"
+          style={`--word-delay: ${i * 0.12}s`}
+        >
+          {slide.split(" ").map((word, j) => (
+            <span style={`animation-delay: ${i * 0.12 + j * 0.04}s`}>{word}{j < slide.split(" ").length - 1 ? "\u00A0" : ""}</span>
+          ))}
+        </p>
+      ))}
+    </div>
+  </div>
+</section>

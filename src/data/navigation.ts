@@ -1,0 +1,13 @@
+import type { NavItem } from "../types"
+
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Beranda", href: "#hero" },
+  { label: "Tantangan", href: "#problem" },
+  { label: "Keunggulan", href: "#differentiators" },
+  { label: "Program", href: "#programs" },
+  { label: "Pricelist", href: "#pricelist" },
+  { label: "Testimonial", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Pendaftaran", href: "/daftar" },
+  { label: "Kontak", href: "#cta" },
+]

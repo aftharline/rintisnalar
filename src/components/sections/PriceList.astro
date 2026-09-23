@@ -1,0 +1,107 @@
+---
+import Button from "../ui/Button.astro"
+import { PHONE_LABEL, PACKAGES } from "../../data/pricelist"
+import { WA_LINK } from "../../data/site"
+import { Sparkles } from "lucide-react"
+---
+
+<section id="pricelist" class="relative overflow-hidden gradient-cream py-24 md:py-32 dot-pattern">
+  <div class="glow-orb w-[500px] h-[500px] bg-teal/5 left-[-150px] top-[-100px]"></div>
+  <div class="glow-orb w-[400px] h-[400px] bg-amber/5 right-[-120px] bottom-[-120px]"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-10">
+      <div class="reveal mb-5"><span class="eyebrow">Harga</span></div>
+      <h2 class="fluid-heading-lg text-ink mt-3 reveal">Pricelist Kami</h2>
+    </div>
+
+    <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+      <span class="font-serif text-6xl md:text-7xl leading-none text-amber/30 select-none" aria-hidden="true">"</span>
+      <p class="fluid-heading-sm italic text-body/80 mt-[-1.75rem] leading-[1.7]">
+        Investasi terbaik yang tidak akan pernah rugi adalah
+        <span class="not-italic font-bold gradient-mixed"> pendidikan anak.</span>
+      </p>
+      <div class="type-separator mt-8 mb-6">✦</div>
+      <p class="text-featured text-body/70">
+        Biaya sudah termasuk <span class="font-semibold text-teal">modul dan alat peraga</span> yang dibawa langsung oleh tutor.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 md:items-stretch">
+      {PACKAGES.map((pkg, idx) => (
+        <div
+          class:list={[
+            "tilt glass rounded-3xl hover:shadow-xl hover:shadow-teal/10 hover:border-teal/30 transition-all duration-500 reveal",
+            idx === 1 ? "ring-conic neon-teal" : "",
+          ]}
+          style={`transition-delay: ${idx * 0.1}s`}
+        >
+          <div class="p-7 md:p-8 pb-0">
+            <div class="flex items-center justify-between gap-3 mb-5">
+              <h3 class="fluid-heading-sm text-ink">{pkg.level}</h3>
+              <span class="shrink-0 text-label text-teal/60">{pkg.id.toUpperCase()}</span>
+            </div>
+
+            <div class="flex items-center gap-2.5 bg-teal/5 border border-teal/10 rounded-xl px-4 py-3">
+              <Sparkles size={16} strokeWidth={2} class="text-amber shrink-0" />
+              <p class="text-xs text-body/80 leading-snug">
+                <span class="font-semibold text-teal">90 Menit</span> Bimbingan Intensif per pertemuan
+              </p>
+            </div>
+
+            <div class="overflow-x-auto scrollbar-hide pb-2">
+              <table class="w-full min-w-[320px] text-sm">
+                <thead>
+                  <tr class="text-left">
+                    <th class="py-3 pr-3 text-label text-body/50 font-medium">Pertemuan</th>
+                    <th class="py-3 pr-3 text-label text-body/50 font-medium">Berlaku</th>
+                    <th class="py-3 text-label text-body/50 font-medium text-right">Harga</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pkg.tiers.map((tier, i) => (
+                    <tr
+                      class:list={[
+                        "border-t border-line/40 group/tier",
+                        tier.sessions === "24 Pertemuan" ? "bg-gradient-to-r from-amber/10 to-transparent" : "",
+                      ]}
+                    >
+                      <td class="py-3 pr-3 text-ink/80 whitespace-nowrap">
+                        <span class="inline-flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-amber to-amber-light group-hover/tier:scale-150 transition-transform"></span>
+                          {tier.sessions}
+                        </span>
+                      </td>
+                      <td class="py-3 pr-3 text-body/60 whitespace-nowrap">{tier.validity}</td>
+                      <td class="py-3 text-right whitespace-nowrap">
+                        <span class="font-sora font-semibold text-teal">{tier.price}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div
+              class:list={[
+                "flex items-center justify-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide uppercase w-max mx-auto",
+                "bg-gradient-to-r from-amber to-amber-light text-ink shadow-sm shadow-amber/20",
+              ]}
+            >
+              Paling Hemat 24 Pertemuan
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-16 reveal">
+      <p class="text-body/70 fluid-body mb-6 max-w-xl mx-auto">
+        Scan QR Website atau hubungi WhatsApp <span class="font-semibold text-teal">{PHONE_LABEL}</span> untuk informasi lebih lanjut.
+      </p>
+      <Button href={WA_LINK} external variant="accent" class="btn-sheen neon-amber">
+        Tanyakan via WhatsApp
+      </Button>
+    </div>
+  </div>
+</section>

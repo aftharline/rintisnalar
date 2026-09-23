@@ -1,0 +1,30 @@
+---
+interface Props {
+  class?: string;
+  as?: "section" | "div";
+  id?: string;
+  background?: "white" | "cream" | "teal" | "ink";
+  padding?: "sm" | "md" | "lg";
+}
+
+const { class: className = "", as: Tag = "section", id, background = "white", padding = "lg" } = Astro.props;
+
+const bgMap = {
+  white: "bg-white",
+  cream: "bg-cream",
+  teal: "bg-teal",
+  ink: "bg-ink",
+};
+
+const paddingMap = {
+  sm: "py-16",
+  md: "py-24",
+  lg: "py-32",
+};
+---
+
+<Tag id={id} class:list={[bgMap[background], paddingMap[padding], className]}>
+  <div class="max-w-7xl mx-auto px-6">
+    <slot />
+  </div>
+</Tag>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+  as?: "h1" | "h2" | "h3";
+  align?: "center" | "left";
+}
+
+const { title, subtitle, class: className = "", as: Tag = "h2", align = "center" } = Astro.props;
+---
+
+<div class={align === "center" ? "text-center" : ""} class:list={[className]}>
+  <Tag class="text-3xl md:text-5xl text-ink mb-4 reveal">{title}</Tag>
+  {subtitle && <p class="text-lg text-body max-w-2xl mx-auto reveal">{subtitle}</p>}
+</div>

@@ -1,0 +1,61 @@
+---
+import Button from "../ui/Button.astro"
+import { DAFTAR_URL } from "../../data/site"
+import { GROUP_PACKAGES, GROUP_SCHEDULE, GROUP_VENUE } from "../../data/groupPricing"
+import { CalendarDays, MapPin, Info } from "lucide-react"
+---
+
+<section id="group-pricing" class="relative overflow-hidden bg-white py-24 md:py-32 dot-pattern-light">
+  <div class="glow-orb w-[500px] h-[500px] bg-amber/5 right-[-150px] top-[-100px]"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-14">
+      <div class="reveal mb-5"><span class="eyebrow">Harga Berkelompok</span></div>
+      <h2 class="fluid-heading-lg text-ink mt-3 reveal">Pricelist Les <span class="gradient-text">Berkelompok</span></h2>
+      <p class="fluid-body text-body/70 mt-4 max-w-xl mx-auto reveal">
+        Tarif flat per bulan, sudah termasuk {GROUP_SCHEDULE} {GROUP_VENUE}.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      {GROUP_PACKAGES.map((pkg, idx) => (
+        <div
+          class="tilt glass rounded-3xl p-7 md:p-8 text-center hover:shadow-xl hover:shadow-teal/10 hover:border-teal/30 transition-all duration-500 reveal"
+          style={`transition-delay: ${idx * 0.1}s`}
+        >
+          <p class="font-hud text-[0.625rem] tracking-[0.24em] uppercase text-teal/60 mb-4">{pkg.id}</p>
+          <h3 class="fluid-heading-sm text-ink mb-2">{pkg.level}</h3>
+          <p class="mb-6">
+            <span class="font-sora font-bold text-3xl md:text-4xl gradient-text">{pkg.price}</span>
+            <span class="block text-xs text-body/50 mt-1">per bulan</span>
+          </p>
+          <div class="space-y-3 text-left text-sm text-body/80 border-t border-line/40 pt-6 mb-8">
+            <p class="flex items-start gap-3">
+              <CalendarDays size={16} strokeWidth={2} class="text-teal shrink-0 mt-0.5" />
+              12 pertemuan per bulan (Senin, Rabu, Jumat)
+            </p>
+            <p class="flex items-start gap-3">
+              <MapPin size={16} strokeWidth={2} class="text-teal shrink-0 mt-0.5" />
+              Di Rumah Belajar Rintis Nalar, Sidoarjo
+            </p>
+          </div>
+          <Button href={DAFTAR_URL} variant="primary" class="w-full">
+            Daftar
+          </Button>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 glass rounded-2xl p-6 md:p-7 flex flex-col md:flex-row items-center gap-4 md:gap-6 reveal">
+      <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber to-amber-light flex items-center justify-center text-ink shrink-0">
+        <Info size={20} strokeWidth={2} />
+      </div>
+      <p class="text-body/80 fluid-body flex-1 text-center md:text-left">
+        Untuk jenjang <span class="font-semibold text-ink">SMA / Sederajat</span>, les berkelompok belum tersedia. Silakan pilih paket privat yang lebih fokus dan personal.
+      </p>
+      <Button href="#pricelist" variant="outline" class="shrink-0">
+        Lihat Paket Privat
+      </Button>
+    </div>
+  </div>
+</section>

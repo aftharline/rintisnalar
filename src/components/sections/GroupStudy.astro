@@ -1,0 +1,158 @@
+---
+import { Users, Handshake, Wallet, MapPin, ArrowUpRight } from "lucide-react"
+import Button from "../ui/Button.astro"
+import { DAFTAR_URL, MAPS_LINK, RUMAH_BELAJAR } from "../../data/site"
+
+const points = [
+  { icon: Users, title: "Kelompok Kecil", desc: "Maksimal 6 siswa per kelompok agar tetap fokus dan personal." },
+  { icon: Handshake, title: "Dinamika Bareng", desc: "Saling memotivasi, diskusi, dan tumbuh bersama teman." },
+  { icon: Wallet, title: "Lebih Hemat", desc: "Biaya lebih terjangkau dibanding sesi privat, kualitas tetap sama." },
+]
+---
+
+<section id="group-study" class="relative overflow-hidden bg-abyss text-white py-24 md:py-32">
+  <div class="grid-floor grid-floor-dark absolute inset-0 opacity-50" aria-hidden="true"></div>
+  <div class="glow-orb w-[500px] h-[500px] bg-teal/[0.08] top-[-150px] left-[-150px] animate-pulse-glow" data-parallax="0.2"></div>
+  <div class="glow-orb w-[350px] h-[350px] bg-amber/[0.06] bottom-[-100px] right-[-100px]"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div>
+        <div class="reveal mb-5"><span class="eyebrow eyebrow-dark">Les Berkelompok</span></div>
+        <h2 class="fluid-heading-lg text-white mt-3 mb-6 reveal">Serunya Belajar <span class="gradient-amber">Bersama.</span></h2>
+        <p class="fluid-body text-white/60 leading-relaxed mb-10 reveal">
+          Selain sesi privat di rumah, Rintis Nalar juga membuka les berkelompok di Rumah Belajar kami, ruang khusus yang dirancang agar anak fokus, nyaman, dan berani bersuara.
+        </p>
+
+        <div class="grid gap-4 mb-10">
+          {points.map((p) => (
+            <div class="tilt flex items-center gap-5 p-5 rounded-xl glass-dark hover:bg-white/[0.1] transition-all duration-400 group reveal">
+              <div class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-amber/30 to-amber/10 rounded-xl text-amber-light group-hover:scale-110 transition-all duration-400 shrink-0">
+                <p.icon size={22} strokeWidth={1.5} />
+              </div>
+              <div>
+                <h4 class="font-semibold text-white">{p.title}</h4>
+                <p class="text-white/50 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 reveal">
+          <Button href={DAFTAR_URL} variant="accent" class="btn-sheen neon-amber">
+            Ikut Les Berkelompok
+          </Button>
+          <a
+            href={MAPS_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-8 py-4 rounded-full font-semibold text-sm tracking-wide text-white glass-dark hover:bg-white/10 transition-all duration-300 text-center"
+          >
+            Buka di Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <a
+          href={MAPS_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group block rounded-3xl overflow-hidden ring-conic neon-teal transition-transform duration-500 hover:scale-[1.02]"
+          aria-label="Buka lokasi Rumah Belajar Rintis Nalar di Google Maps"
+        >
+          <svg viewBox="0 0 400 320" class="w-full h-auto block" role="img" aria-label="Peta animasi lokasi Rumah Belajar Rintis Nalar">
+            <defs>
+              <pattern id="mapgrid" width="28" height="28" patternUnits="userSpaceOnUse">
+                <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#14A398" stroke-opacity="0.14" stroke-width="1" />
+              </pattern>
+              <radialGradient id="pinglow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.85" />
+                <stop offset="45%" stop-color="#F59E0B" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#F59E0B" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="roadmain" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#14A398" stop-opacity="0.15" />
+                <stop offset="50%" stop-color="#14A398" stop-opacity="0.8" />
+                <stop offset="100%" stop-color="#14A398" stop-opacity="0.15" />
+              </linearGradient>
+            </defs>
+
+            <rect width="400" height="320" fill="#0B1220" />
+            <rect width="400" height="320" fill="url(#mapgrid)" />
+
+            <!-- sungai / kanal -->
+            <path d="M -10 250 C 90 230, 150 285, 250 260 C 330 240, 360 255, 410 245"
+              fill="none" stroke="#0F766E" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round" />
+
+            <!-- jalan utama: garis mengalir -->
+            <path d="M -10 190 L 410 150" fill="none" stroke="url(#roadmain)" stroke-width="5" stroke-linecap="round"
+              stroke-dasharray="18 14" class="map-flow" />
+            <path d="M 120 -10 L 200 330" fill="none" stroke="#F59E0B" stroke-opacity="0.35" stroke-width="3"
+              stroke-dasharray="10 12" class="map-flow-slow" />
+            <path d="M -10 90 L 410 110" fill="none" stroke="#14A398" stroke-opacity="0.3" stroke-width="2.5"
+              stroke-dasharray="8 10" class="map-flow" />
+
+            <!-- blok kota -->
+            <g fill="#14A398" fill-opacity="0.07" stroke="#14A398" stroke-opacity="0.25">
+              <rect x="40" y="40" width="52" height="34" rx="4" />
+              <rect x="230" y="48" width="60" height="36" rx="4" />
+              <rect x="300" y="200" width="56" height="38" rx="4" />
+              <rect x="48" y="222" width="48" height="32" rx="4" />
+            </g>
+
+            <!-- titik lokasi -->
+            <g transform="translate(215 172)">
+              <circle r="46" fill="url(#pinglow)" class="map-ring" />
+              <circle r="26" fill="none" stroke="#F59E0B" stroke-width="1.5" class="map-ring map-ring-2" />
+              <circle r="9" fill="#F59E0B" />
+              <circle r="9" fill="none" stroke="#FBBF24" stroke-width="2" class="map-ring" />
+              <g transform="translate(0 -34)">
+                <rect x="-78" y="-15" width="156" height="26" rx="13" fill="#0F766E" />
+                <text x="0" y="2.5" text-anchor="middle" font-family="ui-monospace, Menlo, monospace"
+                  font-size="11" letter-spacing="1.5" fill="#ffffff">RUMAH BELAJAR</text>
+              </g>
+            </g>
+          </svg>
+
+          <div class="flex items-center gap-4 bg-white/[0.05] backdrop-blur-md border-t border-white/10 px-6 py-5">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber to-amber-light flex items-center justify-center text-ink shrink-0">
+              <MapPin size={20} strokeWidth={2} />
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed flex-1">{RUMAH_BELAJAR}</p>
+            <span class="text-amber-light shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">
+              <ArrowUpRight size={20} strokeWidth={2} />
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-flow {
+    animation: map-dash 1.6s linear infinite;
+  }
+  .map-flow-slow {
+    animation: map-dash 3.2s linear infinite;
+  }
+  @keyframes map-dash {
+    to { stroke-dashoffset: -32; }
+  }
+  .map-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: map-ping 2.4s ease-out infinite;
+  }
+  .map-ring-2 {
+    animation-delay: 1.2s;
+  }
+  @keyframes map-ping {
+    0% { transform: scale(0.35); opacity: 0.9; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .map-flow, .map-flow-slow, .map-ring { animation: none; }
+  }
+</style>

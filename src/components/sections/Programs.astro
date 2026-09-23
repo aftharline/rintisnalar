@@ -1,0 +1,48 @@
+---
+import { BookOpen, Cpu, MessagesSquare, Rocket, Languages, Sparkles } from "lucide-react"
+import { PROGRAMS } from "../../data/programs"
+
+const iconMap: Record<string, typeof BookOpen> = {
+  academic: BookOpen,
+  digital: Cpu,
+  communication: MessagesSquare,
+  future: Rocket,
+  multilingual: Languages,
+  lainnya: Sparkles,
+}
+---
+
+<section id="programs" class="relative overflow-hidden gradient-cream py-24 md:py-32 dot-pattern">
+  <div class="glow-orb w-[500px] h-[500px] bg-teal/5 left-[-150px] top-[-100px]"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <div class="reveal mb-5"><span class="eyebrow">Program</span></div>
+      <h2 class="fluid-heading-lg text-ink mt-3 reveal">Program Kami</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {PROGRAMS.map((p) => {
+        const Icon = iconMap[p.id] ?? Sparkles
+        return (
+          <div class="tilt glass p-8 rounded-2xl hover:shadow-xl hover:shadow-teal/10 hover:border-teal/30 transition-all duration-500 group reveal">
+            <div class="flex items-center gap-4 mb-6 pb-5 border-b border-line/40 group-hover:border-teal/30 transition-colors duration-500">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal to-teal-light flex items-center justify-center text-white neon-teal shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                <Icon size={22} strokeWidth={1.75} />
+              </div>
+              <h3 class="fluid-heading-sm text-ink group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-teal group-hover:via-teal-light group-hover:to-amber group-hover:bg-clip-text transition-all duration-500">{p.title}</h3>
+            </div>
+            <ul class="space-y-3">
+              {p.items.map((item) => (
+                <li class="text-body/80 fluid-body flex items-start gap-3">
+                  <span class="w-2 h-2 rounded-full bg-gradient-to-r from-amber to-amber-light mt-2 shrink-0 shadow-[0_0_8px_rgba(245,158,11,0.6)]"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      })}
+    </div>
+  </div>
+</section>

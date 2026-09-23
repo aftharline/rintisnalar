@@ -1,0 +1,61 @@
+---
+import Button from "../ui/Button.astro"
+import { DAFTAR_URL, WA_LABEL } from "../../data/site"
+import NalarField from "../islands/NalarField.tsx"
+
+const stats = [
+  { value: "90'", label: "Menit / Sesi Intensif" },
+  { value: "Privat + Grup", label: "Mode Belajar" },
+  { value: "1x", label: "Sesi Perdana Gratis" },
+]
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-cream via-white to-cream">
+  <div class="grid-floor absolute inset-0" aria-hidden="true"></div>
+  <NalarField variant="light" density={1} client:visible />
+  <div class="glow-orb w-[500px] h-[500px] bg-teal/10 top-[-150px] right-[-100px] animate-pulse-glow" data-parallax="0.2"></div>
+  <div class="glow-orb w-[350px] h-[350px] bg-amber/10 bottom-[-100px] left-[-100px]" data-parallax="0.3"></div>
+
+  <div class="max-w-4xl mx-auto px-6 text-center z-10 pt-28 pb-28" data-parallax="0.08">
+    <div class="reveal mb-8">
+      <span class="eyebrow">Les Privat & Berkelompok · Datang ke Rumah</span>
+    </div>
+
+    <img src="/logo.svg" alt="Rintis Nalar" class="h-20 md:h-24 w-auto mx-auto mb-10 reveal drop-shadow-[0_8px_24px_rgba(15,118,110,0.25)]" />
+
+    <h1 class="fluid-heading-xl text-ink leading-tight mb-6 reveal">
+      Belajar Tidak Harus <br/> <span class="gradient-text text-glow">Menakutkan.</span>
+    </h1>
+
+    <p class="fluid-body-lg text-body/80 max-w-2xl mx-auto mb-10 reveal leading-relaxed">
+      Setiap anak memiliki cara belajar yang berbeda. Kami hadir untuk membantu mereka memahami, bertumbuh, dan percaya pada kemampuannya sendiri.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+      <Button href={DAFTAR_URL} variant="primary" class="btn-sheen neon-teal">
+        {WA_LABEL}
+      </Button>
+      <Button href="#problem" variant="secondary" class="glass">
+        Lihat Perjalanan Kami
+      </Button>
+    </div>
+
+    <div class="mt-12 reveal">
+      <div class="inline-flex items-stretch gap-6 md:gap-10 glass rounded-2xl px-6 md:px-10 py-5">
+        {stats.map((s) => (
+          <div class="text-center">
+            <p class="font-sora font-bold text-xl md:text-2xl text-teal">{s.value}</p>
+            <p class="font-hud text-[0.625rem] tracking-[0.18em] uppercase text-body/60 mt-1">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <a href="#problem" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 text-teal/50 hover:text-teal transition-colors" aria-label="Gulir ke bawah">
+    <span class="font-hud text-[0.625rem] tracking-[0.3em] uppercase">Scroll</span>
+    <span class="w-6 h-10 rounded-full border-2 border-current flex justify-center pt-2">
+      <span class="w-1 h-2 rounded-full bg-current animate-scroll-hint"></span>
+    </span>
+  </a>
+</section>

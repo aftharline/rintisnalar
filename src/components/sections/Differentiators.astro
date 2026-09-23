@@ -1,0 +1,50 @@
+---
+import { Gift, UserCheck, Map, LineChart, Target, PhoneCall, Trophy, CalendarCheck } from "lucide-react"
+import { DIFFERENTIATORS } from "../../data/differentiators"
+
+const iconMap: Record<string, typeof Gift> = {
+  Gift, UserCheck, Map, LineChart, Target, PhoneCall, Trophy, CalendarCheck,
+}
+---
+
+<section id="differentiators" class="relative overflow-hidden bg-white py-24 md:py-32 dot-pattern-light">
+  <div class="glow-orb w-[500px] h-[500px] bg-amber/5 left-[-150px] bottom-[-150px]"></div>
+
+  <div class="max-w-7xl mx-auto px-6 mb-14 text-center relative z-10">
+    <div class="reveal mb-5"><span class="eyebrow">Keunggulan</span></div>
+    <h2 class="fluid-heading-lg text-ink mt-3 reveal">Apa yang Membuat Kami <span class="gradient-text">Berbeda?</span></h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 relative z-10 max-w-7xl mx-auto px-6">
+    {DIFFERENTIATORS.map((item, i) => {
+      const Icon = iconMap[item.icon]
+      const featured = i < 2
+      return (
+        <div
+          class:list={[
+            "tilt glass rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between gap-6 shadow-sm hover:shadow-xl hover:shadow-teal/10 hover:border-teal/30 transition-all duration-500 group reveal relative overflow-hidden",
+            featured && "sm:col-span-2 ring-conic",
+          ]}
+          style={`transition-delay: ${(i % 4) * 0.07}s`}
+        >
+          <span class:list={[
+            "absolute top-3 right-5 font-sora font-bold text-cream-dark/40 group-hover:gradient-text transition-all duration-500 select-none",
+            featured ? "text-7xl md:text-8xl" : "text-5xl md:text-6xl",
+          ]} aria-hidden="true">{(i + 1).toString().padStart(2, "0")}</span>
+          <div class:list={["flex gap-4 relative", featured ? "items-center" : "flex-col items-start"]}>
+            <div class:list={[
+              "rounded-xl md:rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500",
+              featured
+                ? "w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-teal to-teal-light text-white neon-teal group-hover:scale-110 group-hover:rotate-3"
+                : "w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-teal/10 to-teal/5 text-teal group-hover:scale-110 group-hover:from-teal/20 group-hover:to-teal/10",
+            ]}>
+              {Icon && <Icon size={featured ? 26 : 22} strokeWidth={1.5} />}
+            </div>
+            <h3 class={featured ? "text-xl md:text-2xl font-bold text-ink" : "text-lg md:text-xl font-semibold md:font-bold text-ink"}>{item.title}</h3>
+          </div>
+          <p class="text-body/80 text-sm md:text-base leading-relaxed relative">{item.desc}</p>
+        </div>
+      )
+    })}
+  </div>
+</section>
